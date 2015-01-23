@@ -46,4 +46,4 @@ data <- data  %>% gather(feature, value, -subject, -activity) %>%
 data$activity <- factor(data$activity, labels = activities$activity)
 data$feature <- factor(data$feature)
 
-write.table(data, "tidy_data.txt")
+write.table(data, "tidy_data.txt", row.name=FALSE)
