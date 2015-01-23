@@ -19,6 +19,7 @@ names(activities) <- c("id", "activity")
 colindex <- grep("mean\\(\\)|std\\(\\)", features)
 
 # Clean these feature names to remove invalid characters and correct those containing 'BodyBody'
+# and replace mean and std with Mean and Std
 cols <- gsub("BodyBody", "Body", gsub("[-()]", "", features[colindex]))
 cols <- gsub("mean", "Mean", cols)
 cols <- gsub("std", "Std", cols)
@@ -42,6 +43,9 @@ xtest["activity"] <- read.table("UCI HAR Dataset/test/y_test.txt")
 # Merge the data sets
 df <- rbind(xtrain, xtest)
 
+# Gather feature columns into rows,
+# group this by subject, activity an feature,
+# then calculate the average for each group
 df <- df  %>% gather(feature, value, -subject, -activity) %>%
   group_by(subject, activity, feature) %>%
   summarise(average = mean(value))
