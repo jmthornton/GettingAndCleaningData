@@ -24,7 +24,7 @@ The final data set is produced by assembling the feature measurements, subjects 
 
 The data is cleaned by removing unwanted features and  correcting naming errors in the original features.
 
-This data set is then reshaped into a tidy format (described below) and then the average for each subject, activity and feature is calculated by grouping.
+This data set is then reshaped into a tidy format (described below) and then the average value for each subject, activity and feature group is calculated.
 
 The following files are used to build the final data set:
 
