@@ -44,7 +44,7 @@ xtest["activity"] <- read.table("UCI HAR Dataset/test/y_test.txt")
 df <- rbind(xtrain, xtest)
 
 # Gather feature columns into rows,
-# group this by subject, activity an feature,
+# group this by subject, activity and feature,
 # then calculate the average for each group
 df <- df  %>% gather(feature, value, -subject, -activity) %>%
   group_by(subject, activity, feature) %>%
